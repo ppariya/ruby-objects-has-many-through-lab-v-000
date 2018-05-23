@@ -11,4 +11,11 @@ class Patient
     @@all
   end
 
+  def new_appointment
+    Appointment.new(patient, self, date)
+  end
+
+  def doctors 
+    self.appointments.collect {|appointment| appointment.doctor}
+  end
 end
